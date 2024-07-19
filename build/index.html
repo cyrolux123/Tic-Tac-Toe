@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe</title>
+    <style>
+        :root {
+            --background-gradient: linear-gradient(135deg, #FFF3E0, #FFE0B2, #FFCCBC);
+            --text-color: #5D4037;
+            --button-bg: #FF5722;
+            --button-bg-hover: #F4511E;
+            --button-text: #FFFFFF;
+        }
+        body {
+            font-family: 'Roboto', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: var(--background-gradient);
+            color: var(--text-color);
+            overflow: hidden;
+        }
+        .homepage-container {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            backdrop-filter: blur(10px);
+        }
+        h1 {
+            color: var(--text-color);
+            font-weight: 300;
+            font-size: 2.5em;
+        }
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 1.2em;
+            background: var(--button-bg);
+            color: var(--button-text);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.3s ease;
+            text-decoration: none;
+        }
+        .button:hover {
+            background: var(--button-bg-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        .button:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(255,87,34,0.5);
+        }
+        .game-instructions {
+            margin-top: 2rem;
+            font-size: 1em;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <div class="homepage-container">
+        <h1>Welcome to Tic Tac Toe</h1>
+        <a href="game.html" class="button">Start Game</a>
+        <button class="button" id="instructionsButton">Instructions</button>
+        <div class="game-instructions" id="gameInstructions" style="display: none;">
+            <h2>How to Play</h2>
+            <p>The game is played on a 3x3 grid. Player X and Player O take turns marking the spaces in the grid. The first player to get three of their marks in a horizontal, vertical, or diagonal row wins the game. If all nine squares are filled and neither player has three in a row, the game ends in a draw.</p>
+        </div>
+    </div>
+
+    <script>
+        const instructionsButton = document.getElementById('instructionsButton');
+        const gameInstructions = document.getElementById('gameInstructions');
+        
+        instructionsButton.addEventListener('click', () => {
+            if (gameInstructions.style.display === 'none') {
+                gameInstructions.style.display = 'block';
+                instructionsButton.textContent = 'Hide Instructions';
+            } else {
+                gameInstructions.style.display = 'none';
+                instructionsButton.textContent = 'Instructions';
+            }
+        });
+    </script>
+</body>
+</html>
